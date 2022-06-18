@@ -10,3 +10,6 @@ INSERT INTO Employee_PayRoll( Name, Salary, Start ) VALUES
 ( 'Reshma', 6000000.00, '2017-05-12' ),
 ( 'Vahidha', 4000000.00, '2018-06-01' ),
 ( 'Basith', 450000.00, '2020-07-16' );
+
+UC4: Retrieve Data from database
+SELECT * FROM Employee_PayRoll;
