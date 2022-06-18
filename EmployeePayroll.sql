@@ -13,3 +13,7 @@ INSERT INTO Employee_PayRoll( Name, Salary, Start ) VALUES
 
 UC4: Retrieve Data from database
 SELECT * FROM Employee_PayRoll;
+
+UC5: Retrieve Salary data of particular Employee & Employee list in given Range
+SELECT NAME, SALARY FROM employee_payroll WHERE NAME = 'Reshma';
+SELECT NAME, SALARY FROM Employee_PayRoll WHERE START BETWEEN CAST('2018-01-01' AS DATE) AND GETDATE();
