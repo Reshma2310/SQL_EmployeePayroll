@@ -43,5 +43,12 @@ ALTER TABLE Employee_Payroll ADD Address varchar(200) NOT NULL default 'Kurnool'
 ALTER TABLE Employee_Payroll ADD Department varchar(100);
 UPDATE Employee_Payroll SET Department='Software' WHERE Name='Reshma';
 UPDATE Employee_Payroll SET Department='Managment' WHERE ID=7 or ID =8;
+UPDATE Employee_Payroll SET Department='Finance' WHERE Name='Vahidha';
 
-
+UC9: Extend table by adding Basic, Net & Taxable Pay, Deductions & Income tax
+ALTER TABLE Employee_Payroll ADD BasicPay Float NOT NULL DEFAULT(0), Deductions FLOAT NOT NULL DEFAULT(0),
+TaxablePay FLOAT NOT NULL DEFAULT(0), NetPay FLOAT NOT NULL DEFAULT(0)
+UPDATE Employee_Payroll SET BasicPay = 90000, Deductions = 400, TaxablePay = 280, NetPay = 89320 WHERE ID = 1;
+UPDATE Employee_Payroll SET BasicPay = 70000, Deductions = 200, TaxablePay = 280, NetPay = 69520 WHERE ID = 2;
+UPDATE Employee_Payroll SET BasicPay = 80000, Deductions = 300, TaxablePay = 280, NetPay = 79420 WHERE ID = 7;
+UPDATE Employee_Payroll SET BasicPay = 75000, Deductions = 250, TaxablePay = 280, NetPay = 74470 WHERE ID = 8;
