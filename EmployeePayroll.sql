@@ -47,8 +47,13 @@ UPDATE Employee_Payroll SET Department='Finance' WHERE Name='Vahidha';
 
 UC9: Extend table by adding Basic, Net & Taxable Pay, Deductions & Income tax
 ALTER TABLE Employee_Payroll ADD BasicPay Float NOT NULL DEFAULT(0), Deductions FLOAT NOT NULL DEFAULT(0),
-TaxablePay FLOAT NOT NULL DEFAULT(0), NetPay FLOAT NOT NULL DEFAULT(0)
-UPDATE Employee_Payroll SET BasicPay = 90000, Deductions = 400, TaxablePay = 280, NetPay = 89320 WHERE ID = 1;
-UPDATE Employee_Payroll SET BasicPay = 70000, Deductions = 200, TaxablePay = 280, NetPay = 69520 WHERE ID = 2;
-UPDATE Employee_Payroll SET BasicPay = 80000, Deductions = 300, TaxablePay = 280, NetPay = 79420 WHERE ID = 7;
-UPDATE Employee_Payroll SET BasicPay = 75000, Deductions = 250, TaxablePay = 280, NetPay = 74470 WHERE ID = 8;
+TaxablePay FLOAT NOT NULL DEFAULT(0), NetPay FLOAT NOT NULL DEFAULT(0), IncomeTax Float NOT NULL DEFAULT(0)
+UPDATE Employee_Payroll SET BasicPay = 90000, Deductions = 400, TaxablePay = 280, NetPay = 89000, IncomeTax=320 WHERE ID = 1;
+UPDATE Employee_Payroll SET BasicPay = 70000, Deductions = 200, TaxablePay = 280, NetPay = 69300, IncomeTax=220 WHERE ID = 2;
+UPDATE Employee_Payroll SET BasicPay = 80000, Deductions = 300, TaxablePay = 280, NetPay = 79200, IncomeTax=220 WHERE ID = 7;
+UPDATE Employee_Payroll SET BasicPay = 75000, Deductions = 250, TaxablePay = 280, NetPay = 74250, IncomeTax=220 WHERE ID = 8;
+
+UC10: 
+INSERT INTO Employee_Payroll VALUES('Terissa', 40000000,'2021-06-01','Female',2666147305,'Hyd','Sales&Marketing',35000,200,280,34320,200)
+UPDATE Employee_Payroll SET NAME = 'Terissa' WHERE ID = 8;
+SELECT * FROM Employee_PayRoll;
