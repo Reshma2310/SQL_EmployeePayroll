@@ -32,4 +32,16 @@ SELECT (Max(Salary)) MaxSalary FROM Employee_Payroll;
 SELECT COUNT(CASE WHEN UPPER(Gender) = 'MALE' THEN 1 END) Male,
 COUNT(CASE WHEN UPPER(Gender) = 'FEMALE' THEN 1 END) Female, COUNT(ID) AS 'Total Employee' FROM Employee_Payroll;
 
+UC8: Extend table by adding phone, address & department
+ALTER TABLE Employee_Payroll ADD Phone varchar(10);
+UPDATE Employee_Payroll SET phone='4444567893' WHERE id=1;
+UPDATE Employee_Payroll SET phone='6444567893' WHERE id=2;
+UPDATE Employee_Payroll SET phone='3334567893' WHERE id=7;
+UPDATE Employee_Payroll SET phone='3774567893' WHERE id=8;
+
+ALTER TABLE Employee_Payroll ADD Address varchar(200) NOT NULL default 'Kurnool'
+ALTER TABLE Employee_Payroll ADD Department varchar(100);
+UPDATE Employee_Payroll SET Department='Software' WHERE Name='Reshma';
+UPDATE Employee_Payroll SET Department='Managment' WHERE ID=7 or ID =8;
+
 
