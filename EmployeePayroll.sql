@@ -54,6 +54,36 @@ UPDATE Employee_Payroll SET BasicPay = 80000, Deductions = 300, TaxablePay = 280
 UPDATE Employee_Payroll SET BasicPay = 75000, Deductions = 250, TaxablePay = 280, NetPay = 74250, IncomeTax=220 WHERE ID = 8;
 
 UC10: 
-INSERT INTO Employee_Payroll VALUES('Terissa', 40000000,'2021-06-01','Female',2666147305,'Hyd','Sales&Marketing',35000,200,280,34320,200)
-UPDATE Employee_Payroll SET NAME = 'Terissa' WHERE ID = 8;
+INSERT INTO Employee_Payroll VALUES('Terissa', 4000000,'2021-06-01','Female',2666147305,'Hyd','Sales&Marketing',35000,200,280,34320,200)
+SELECT * FROM Employee_PayRoll;
+INSERT INTO Employee_Payroll VALUES('Terissa', 4000000,'2021-06-01','Female',2666147305,'Hyd','Marketing',35000,200,280,34320,200)
+
+UC11: 
+CREATE TABLE Employee(
+ID INT IDENTITY(1,1) PRIMARY KEY(ID),
+NAME VARCHAR(1),
+ADDRESS VARCHAR(250),
+);
+CREATE TABLE Employee_Details(
+ID INT IDENTITY(1,1) PRIMARY KEY(ID),
+Emp_Name VARCHAR(1),
+Gender VARCHAR(1),
+Payroll_ID int not null Foreign key References Employee_Payroll(ID),
+ADDRESS VARCHAR(250));
+CREATE TABLE Department(Dept_ID INT IDENTITY(1,1) PRIMARY KEY(Dept_ID), Dept_Name varchar(50) NOT NULL);
+
+CREATE TABLE Dept_Employee(
+Emp_ID int NOT NULL Foreign key references Employee_Details(ID),
+Dept_ID int NOT NULL Foreign key references Department(Dept_ID));
+ALTER TABLE Employee_Details ADD Department VARCHAR(150);
+SELECT * FROM Employee_Details
+INSERT INTO Employee_Details ( Emp_Name, Gender, Payroll_ID, ADDRESS, Department ) Values
+('Reshma','F','1','Kurnool','Software'),
+('Vahidha','F','2','Kurnool','Finance'),
+('Basith','M','3','Kurnool','Managment'),
+('Terissa','F','10','Hyd','Marketing');
+
+UC12: 
+SELECT Emp_Name,IncomeTax from Employee_Details,Employee_Payroll WHERE Employee_Details.Payroll_ID=Employee_Payroll.ID;
+SELECT Emp_Name,IncomeTax from Employee_Details,Employee_Payroll WHERE Start BETWEEN CAST('1996-01-01' as Date) AND GETDATE() AND Employee_Details.Payroll_ID=Employee_Payroll.ID;
 SELECT * FROM Employee_PayRoll;
